@@ -74,11 +74,18 @@ while (unboxed > 0){
     if (boxed === 7){
         console.log('Filling box...');
         boxes.push(boxName);
-        console.log('Filled box number:', boxName);
+        console.log('Filled box number', boxName);
         boxName++;
         unboxed -= 7;
-        console.log('Items remaining', unboxed);
+        console.log('Items remaining:', unboxed);
         boxed = 0;
+    }
+    else if (unboxed <= partsMax){
+        boxName--;
+        console.log('Insufficient parts to fill box.');
+        console.log('We have filled:', boxName, 'boxes.');
+        console.log('Items remaining', unboxed);
+        break;
     }
     else{
         boxed++;
